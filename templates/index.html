@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Welcome Page</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: skyblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 420px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.header {
+    background: #fff9c4;
+    padding: 20px;
+    text-align: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 22px;
+    color: #333;
+}
+
+.form-section {
+    background: white;
+    padding: 20px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.1);
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #2d89ef;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+button:hover {
+    background: #1b6fd6;
+}
+
+/* Output box */
+.output {
+    margin-top: 15px;
+    padding: 12px;
+    background: #f4f4f4;
+    border-radius: 8px;
+    min-height: 60px;
+    word-wrap: break-word;
+    font-size: 15px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>👋 Welcome to My Website</h1>
+    </div>
+
+    <!-- FORM -->
+    <div class="form-section">
+
+        <input type="text" id="name" placeholder="Enter your name">
+
+        <input type="text" id="day" placeholder="How was your day?">
+
+        <textarea id="feedback" rows="4" placeholder="Give us your feedback"></textarea>
+
+        <button onclick="submitData()">Submit</button>
+
+        <div class="output" id="outputBox">
+            Output will appear here...
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function submitData() {
+
+    let name = document.getElementById("name").value;
+    let day = document.getElementById("day").value;
+    let feedback = document.getElementById("feedback").value;
+
+    if(name === "" || day === "" || feedback === "") {
+        document.getElementById("outputBox").innerHTML =
+            "⚠ Please fill all fields!";
+        return;
+    }
+
+    document.getElementById("outputBox").innerHTML =
+        "🎉 <b>Thank You!</b><br><br>" +
+        "Your response has been submitted successfully.<br>" +
+        "We appreciate your feedback and time.<br><br>" +
+        "👤 Name: " + name + "<br>" +
+        "😊 Day: " + day + "<br>" +
+        "💬 Feedback: " + feedback + "<br><br>" +
+        "Have a great day ahead! 🌟";
+}
+</script>
+
+</body>
+</html>
